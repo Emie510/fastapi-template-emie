@@ -62,18 +62,18 @@ class MyPayload(BaseModel):
     integer_field: int 
 
 
-@app.post("/how cool is this?")
-async def post_how_cool_this_is(answer_to_question:MyPayload, dependencies=Depends(required_headers)):
-    """Provide your input on how cool this is?"""
+@app.post("/post-something")
+async def post_something_for_sanne(payload: MyPayload, dependencies=Depends(required_headers)):
+    """POST Something. This method is meant for you to send the data of the registration in this format, so that it will be stored in the database. """
     
     # do something with input_data
-    new_string = MyPayload.text_field + ". Indeed, I agree. Supercool."
+    new_string = payload.text_field + " Wessel is here " + str(payload.integer_field)
     
     return JSONResponse(status_code=200, content={"message": "Success", "new_string": new_string})
 
 
 @app.get("/get-something")
-async def get_a_dataframe_with_multiples_of_this_number(id: int, api_key: str = Depends(key_query_scheme)):
+async def get_something(id: int, api_key: str = Depends(key_query_scheme)):
     """GET Something."""
     
     # check API key
