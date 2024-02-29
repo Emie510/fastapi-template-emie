@@ -62,12 +62,12 @@ class MyPayload(BaseModel):
     integer_field: int | None = None
 
 
-@app.post("/post-something")
-async def post_something_for_sanne(payload: MyPayload, dependencies=Depends(required_headers)):
-    """POST Something. This method is meant for you to send the data of the registration in this format, so that it will be stored in the database. """
+@app.post("/how cool is this?")
+async def post_something_for_sanne(answer_to_question, dependencies=Depends(required_headers)):
+    """Provide your input on how cool this is"""
     
     # do something with input_data
-    new_string = payload.text_field + " Wessel is here " + str(payload.integer_field)
+    new_string = answer_to_question.text_field + ". Indeed, I agree."
     
     return JSONResponse(status_code=200, content={"message": "Success", "new_string": new_string})
 
