@@ -59,7 +59,7 @@ async def docs_redirect():
 
 class MyPayload(BaseModel):
     text_field: str
-    integer_field: int | None = None
+    integer_field: int 
 
 
 @app.post("/how cool is this?")
