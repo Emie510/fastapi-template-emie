@@ -63,7 +63,7 @@ class MyPayload(BaseModel):
 
 
 @app.post("/how cool is this?")
-async def post_something_for_sanne(answer_to_question, dependencies=Depends(required_headers)):
+async def post_how_cool_this_is(answer_to_question, dependencies=Depends(required_headers)):
     """Provide your input on how cool this is"""
     
     # do something with input_data
