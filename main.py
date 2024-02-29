@@ -63,11 +63,11 @@ class MyPayload(BaseModel):
 
 
 @app.post("/how cool is this?")
-async def post_how_cool_this_is(answer_to_question, dependencies=Depends(required_headers)):
+async def post_how_cool_this_is(answer_to_question:MyPayload, dependencies=Depends(required_headers)):
     """Provide your input on how cool this is?"""
     
     # do something with input_data
-    new_string = answer_to_question.text_field + ". Indeed, I agree. Supercool."
+    new_string = MyPayload.text_field + ". Indeed, I agree. Supercool."
     
     return JSONResponse(status_code=200, content={"message": "Success", "new_string": new_string})
 
