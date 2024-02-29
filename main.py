@@ -67,7 +67,7 @@ async def post_how_cool_this_is(answer_to_question, dependencies=Depends(require
     """Provide your input on how cool this is"""
     
     # do something with input_data
-    new_string = answer_to_question.text_field + ". Indeed, I agree."
+    new_string = answer_to_question.text_field + ". Indeed, I agree. Supercool."
     
     return JSONResponse(status_code=200, content={"message": "Success", "new_string": new_string})
 
