@@ -73,7 +73,7 @@ async def post_how_cool_this_is(answer_to_question, dependencies=Depends(require
 
 
 @app.get("/get-something")
-async def get_something(id: int, api_key: str = Depends(key_query_scheme)):
+async def get_a_dataframe_with_multiples_of_this_number(id: int, api_key: str = Depends(key_query_scheme)):
     """GET Something."""
     
     # check API key
